@@ -15,9 +15,10 @@
  * @param {number[]} nums
  * @return {number}
  */
+// Solution 1:
+// Runtime: 164 ms
 var singleNumber = function (nums) {
-  // Solution 1:
-  // Runtime: 164 ms
+
   return nums.reduce(function (pre, cur) {
     return pre ^ cur;
   });
@@ -26,44 +27,46 @@ var singleNumber = function (nums) {
  * @param {number[]} nums
  * @return {number}
  */
-
+// solution 2
 var singleNumber = function (nums) {
-  // solution 2
-  var ob={};
-  nums.forEach(num=>{
-    if(ob[num]) {
+
+  var ob = {};
+  nums.forEach(num => {
+    if (ob[num]) {
       delete ob[num]
-    }else{
+    } else {
       ob[num] = true
     }
   })
   return Object.keys(ob)[0]
 };
 
- /**
- * @param {number[]} nums
- * @return {number}
- */
+/**
+* @param {number[]} nums
+* @return {number}
+*/
+// Solution 3:
+//Runtime: 140 ms
 var singleNumber = function (nums) {
-  // Solution 3:
-  //Runtime: 140 ms
+
   var res;
   for (var i in nums) {
-      res ^= nums[i];
+    res ^= nums[i];
   }
   return res;
 };
 
- /**
- * @param {number[]} nums
- * @return {number}
- */
+/**
+* @param {number[]} nums
+* @return {number}
+*/
+// Solution 4:
+// Runtime: 128 ms
 var singleNumber = function (nums) {
-  // Solution 4:
-  // Runtime: 128 ms
+
   var res = nums[0];
   for (var i = 1, l = nums.length; i < l; ++i) {
-      res ^= nums[i];
+    res ^= nums[i];
   }
   return res;
 };
